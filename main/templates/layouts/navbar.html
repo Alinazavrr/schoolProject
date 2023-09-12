@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #47A76A; /* Зелёный цвет фона */
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #1E5945; /* Зелёный цвет фона при наведении */
+        }
+
+
+        /* Стили для элемента "Home" */
+        .home {
+            margin-right: 80%; /* Размещение "Home" максимально справа */
+        }
+
+    </style>
 </head>
+
 <body>
-$END$
+
+    <div class="navbar">
+        <a class="home" href="#">Home</a>
+        <a href="#">Search</a>
+        <a href="#">Favorites</a>
+        <a href="#">Account</a>
+    </div>
+
+
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
 </body>
 </html>
