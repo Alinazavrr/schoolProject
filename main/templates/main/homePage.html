@@ -2,7 +2,77 @@
 
 {% block title %} Home {% endblock %}
 
+{% block css %}
+
+    body, h1, h2, p {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #d3f5d3;
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: #4caf50;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    section {
+        background-color: #e6f7e6;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+    }
+
+    footer {
+        background-color: #4caf50;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+{% endblock %}
 
 {% block content %}
-    <p> FFFFFFFFFFFFFFFFFFFFFFFF </p>
+    <header>
+        <h1>Добро пожаловать на сайт "FeelGood"!</h1>
+    </header>
+
+    <section id="about">
+        <h2>О нас</h2>
+        <p>Наши страсти исследованиям в области здорового питания и желание помочь вам сделать правильный выбор в вопросах питания вдохновили нас на создание проекта "FeelGood". Мы стремимся быть вашим надежным путеводителем к здоровому образу жизни через правильное питание.</p>
+    </section>
+
+    <section id="tips">
+        <h2>Советы и рекомендации</h2>
+        <p>Наши эксперты по здоровому питанию делятся с вами полезными советами о том, как сделать вашу диету более сбалансированной и полезной для вашего организма.</p>
+    </section>
+
+    <section id="recipes">
+        <h2>Рецепты</h2>
+        <p>В разделе рецептов вы найдете вкусные и здоровые блюда, которые помогут вам разнообразить свой рацион.</p>
+    </section>
+
+    <section id="research">
+        <h2>Исследования</h2>
+        <p>Мы следим за последними научными исследованиями в области здорового питания и делимся с вами актуальной информацией.</p>
+    </section>
+
+    <section id="community">
+        <h2>Сообщество</h2>
+        <p>Присоединяйтесь к нашему сообществу, где вы можете обмениваться опытом, задавать вопросы и поддерживать друг друга в пути к здоровому образу жизни.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 FeelGood. Все права защищены.</p>
+    </footer>
 {% endblock %}

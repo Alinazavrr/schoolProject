@@ -5,7 +5,7 @@
     <title>{% block title %}My Site{% endblock %}</title>
 
     <style>
-        body {
+        body, h1, h2, p {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -32,9 +32,12 @@
 
         /* Стили для элемента "Home" */
         .home {
-            margin-right: 80%; /* Размещение "Home" максимально справа */
+            margin-right: 70%; /* Размещение "Home" максимально справа */
         }
 
+        {% block css %}
+
+        {% endblock %}
     </style>
 </head>
 
