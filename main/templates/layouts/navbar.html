@@ -1,60 +1,54 @@
+{% load bootstrap4 %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}My Site{% endblock %}</title>
-
-    <style>
-        body, h1, h2, p {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: #47A76A; /* Зелёный цвет фона */
-            overflow: hidden;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .navbar a:hover {
-            background-color: #1E5945; /* Зелёный цвет фона при наведении */
-        }
-
-
-        /* Стили для элемента "Home" */
-        .home {
-            margin-right: 70%; /* Размещение "Home" максимально справа */
-        }
-
-        {% block css %}
-
-        {% endblock %}
-    </style>
+    <title>{% block title %}Home Page{% endblock %}</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='slim' %}
 </head>
-
-<body>
-
-    <div class="navbar">
-        <a class="home" href="#">Home</a>
-        <a href="#">Search</a>
-        <a href="#">Favorites</a>
-        <a href="#">Account</a>
+<body class="container-fluid">
+    <header class="mb-4">
+        <h1 class="display-1 text-center">{% block header %} Feel Good{% endblock %}</h1>
+    </header>
+    <div class="row">
+        <ul class="col nav justify-content-end border">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Профиль
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'user_permissions' %}">Мои разрешения</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'change_password' %}">Изменить пароль</a>
+                </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Registraion</a>
+            </li>
+            {% endif %}
+        </ul>
     </div>
-
-
-    <div class="content">
-        {% block content %}
-
-        {% endblock %}
+    <div class="row">
+        <nav class="col-md-auto nav flex-column border">
+            <a class="nav-link" href="{% url 'main_page' %}">Home</a>
+            <a class="nav-link" href="#">Diets</a>
+            <a class="nav-link" href="#">Favorites</a>
+            <a class="nav-link" href="#">Account</a>
+        </nav>
+        <section class="col border py-2">
+            {% bootstrap_messages %}
+            {% block content %}
+            {% endblock %}
+        </section>
     </div>
 </body>
 </html>

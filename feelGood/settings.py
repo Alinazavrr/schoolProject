@@ -37,8 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #additional installs
+    'bootstrap4',
+
+    #apps
     'main'
 ]
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+    'template_pack': 'bootstrap4',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
