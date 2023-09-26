@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'bootstrap4',
 
     #apps
-    'main'
+    'main',
+    'accounts',
 ]
 
 BOOTSTRAP4 = {
