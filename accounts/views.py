@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.views.generic import TemplateView
 from django.views.generic import CreateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.apps import apps
 from django.http import HttpResponseRedirect
 
@@ -27,6 +27,7 @@ class UserLoginView(LoginView):
     redirect_field_name = 'next' # default
     extra_context = {'key': 'value'}
     authentication_form = AuthenticationForm # default
+    success_url = 'accounts/logout_page'
 
 
 # LogoutView(TemplateView)
