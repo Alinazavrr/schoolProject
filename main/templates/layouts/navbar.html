@@ -40,9 +40,9 @@
     <div class="row">
         <nav class="col-md-auto nav flex-column border">
             <a class="nav-link" href="{% url 'main_page' %}">Home</a>
-            <a class="nav-link" href="#">Diets</a>
-            <a class="nav-link" href="#">Favorites</a>
-            <a class="nav-link" href="#">Account</a>
+            <a class="nav-link" href="{% url 'diets_page' %}">Diets</a>
+            <a class="nav-link" href="{% url 'favorites_page' %}">Favorites</a>
+            <a class="nav-link" href="{% url 'account_page' %}">Account</a>
         </nav>
         <section class="col border py-2">
             {% bootstrap_messages %}
