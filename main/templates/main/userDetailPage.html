@@ -1,0 +1,16 @@
+{% extends 'layouts/navbar.html' %}
+{% load bootstrap4 %}
+{% block title %} Favorites {% endblock %}
+{% block header %} Любимые Диеты {% endblock %}
+
+{% block content %}
+    <h1>{{ user.username }}</h1>
+    <p>Имя: {{ user.first_name }}</p>
+    <p>Фамилия: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Дата регистрации: {{ user.date_joined }}</p>
+    <p>Последний вход: {{ user.last_login }}</p>
+    <p>Статус активации: {{ user.is_active }}</p>
+    <p>Статус суперпользователя: {{ user.is_superuser }}</p>
+    <p>Статус персонала: {{ user.is_staff }}</p>
+{% endblock %}
