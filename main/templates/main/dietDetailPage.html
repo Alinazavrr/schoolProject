@@ -1,0 +1,34 @@
+{% extends 'layouts/navbar.html' %}
+{% load bootstrap4 %}
+{% block title %} Diets {% endblock %}
+{% block header %} Диеты {% endblock %}
+
+{% block content %}
+     <div class="container mt-5">
+        <h1>Details</h1>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">Name:</dt>
+                    <dd class="col-sm-8">{{ diet.name }}</dd>
+                    <dt class="col-sm-4">Overview:</dt>
+                    <dd class="col-sm-8">{{ diet.overview }}</dd>
+                    <dt class="col-sm-4">Duration:</dt>
+                    <dd class="col-sm-8">{{ diet.duration }}</dd>
+                    <dt class="col-sm-4">Category:</dt>
+                    <dd class="col-sm-8">{{ diet.category.name }}</dd>
+                    <dt class="col-sm-4">Countries Food:</dt>
+                    <dd class="col-sm-8">
+                        {% for country_food in die.countries_food.all %}
+                            {{ country_food.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    <dt class="col-sm-4">Fluid Intake Recommendation:</dt>
+                    <dd class="col-sm-8">{{ diet.fluid_intake_recommendation }}</dd>
+                    <dt class="col-sm-4">Restrictions Recommendations:</dt>
+                    <dd class="col-sm-8">{{ diet.restrictions_recommendations }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+{% endblock %}

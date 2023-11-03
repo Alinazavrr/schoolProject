@@ -17,14 +17,16 @@ class CountryFood(models.Model):
         return "CountryFood: " + self.name
 
 class Diets(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     overview = models.TextField()
-    colories = models.IntegerField()
-    category = models.ManyToManyField(Category)
-    countries_food = models.ManyToManyField(CountryFood)
+    duration = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
+    countries_food = models.ManyToManyField(CountryFood, null=True, blank=True)
+    fluid_intake_recommendation = models.TextField(blank=True, null=True)
+    restrictions_recommendations = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.name + ': colories per day ' + self.colories_pd_medium
+        return self.name
 
 
 class FavoritesDiets(models.Model):

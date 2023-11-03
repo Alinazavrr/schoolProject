@@ -1,16 +1,22 @@
 {% extends 'layouts/navbar.html' %}
 {% load bootstrap4 %}
-{% block title %} Favorites {% endblock %}
-{% block header %} Любимые Диеты {% endblock %}
+{% block title %} Account {% endblock %}
+{% block header %} Информация о пользователе {% endblock %}
 
 {% block content %}
-    <h1>{{ user.username }}</h1>
-    <p>Имя: {{ user.first_name }}</p>
-    <p>Фамилия: {{ user.last_name }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Дата регистрации: {{ user.date_joined }}</p>
-    <p>Последний вход: {{ user.last_login }}</p>
-    <p>Статус активации: {{ user.is_active }}</p>
-    <p>Статус суперпользователя: {{ user.is_superuser }}</p>
-    <p>Статус персонала: {{ user.is_staff }}</p>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Welcome, {{ user.username }}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Email: {{ user.email }}</li>
+                    <li class="list-group-item">First Name: {{ user.first_name }}</li>
+                    <li class="list-group-item">Last Name: {{ user.last_name }}</li>
+                    <li class="list-group-item">Date Joined: {{ user.date_joined }}</li>
+                    <!-- Другие данные о пользователе, которые вы хотите отобразить -->
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

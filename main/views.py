@@ -16,22 +16,28 @@ class HomePageView(TemplateView):
 
     template_name = 'main/homePage.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        # Получите объект пользователя из request
-        user = self.request.user
-
-        # Добавьте пользователя в контекст
-        context['user'] = user
-
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #
+    #     # Получите объект пользователя из request
+    #     user = self.request.user
+    #
+    #     # Добавьте пользователя в контекст
+    #     context['user'] = user
+    #
+    #     return context
 
 
 class DietsListView(LoginRequiredMixin, ListView):
     model = Diets
     context_object_name = 'diets'
     template_name = 'main/dietsPage.html'
+    paginate_by = 5
+
+class DietsDetailView(LoginRequiredMixin, DetailView):
+    model = Diets
+    context_object_name = 'diet'
+    template_name = 'main/dietDetailPage.html'
 
 
 class FavoritesDietsListView(LoginRequiredMixin, ListView):
@@ -39,11 +45,18 @@ class FavoritesDietsListView(LoginRequiredMixin, ListView):
     context_object_name = 'favorite'
     template_name = 'main/favoritePage.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['favoriteExisting'] = True if FavoritesDiets.objects.count() > 0 else False
 
-class AccountDetailView(LoginRequiredMixin, DetailView):
-    model = User
-    template_name = 'userDetailPage.html'
-    context_object_name = 'user'
+class AccountDetailView(LoginRequiredMixin, TemplateView):
 
-    def get_object(self, queryset=None):
-        return self.request.user
+    template_name = 'main/userDetailPage.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        # Добавьте пользователя в контекст
+        context['user'] = user
+
+        return context

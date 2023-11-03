@@ -4,4 +4,21 @@
 {% block header %} Диеты {% endblock %}
 
 {% block content %}
+    <div class="container">
+        {% for diet in diets %}
+            <div class="card md-3">
+                <div class="card-header">
+                    <h4 class="card-title"><a href="{% url 'diets_detail' pk=diet.pk %}">{{ diet.name }}</a></h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Overview: {{ diet.overview }}</p>
+                    <p class="card-text">Duration in months: {{ diet.duration }}</p>
+                    <p class="card-text">Category: {{ diet.category }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="d-flex justify-content-center">
+            {% bootstrap_pagination page_obj size='medium' %}
+        </div>
+    </div>
 {% endblock %}

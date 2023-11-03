@@ -4,4 +4,33 @@
 {% block header %} Любимые Диеты {% endblock %}
 
 {% block content %}
+    {% if favoriteExisting %}
+        <div class="container">
+            <h1>User's Favorite Diets</h1>
+            <ul class="list-group">
+                {% for favorite in object_list %}
+                    <li class="list-group-item">
+                        <strong>User:</strong> {{ favorite.user.username }}<br>
+                        <strong>Diet:</strong> {{ favorite.diet.name }}<br>
+                        <strong>Overview:</strong> {{ favorite.diet.overview }}<br>
+                        <strong>Colories:</strong> {{ favorite.diet.colories }}<br>
+                        <strong>Categories:</strong>
+                        <ul class="list-group">
+                            {% for category in favorite.diet.category.all %}
+                                <li class="list-group-item">{{ category.name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <strong>Countries Food:</strong>
+                        <ul class="list-group">
+                            {% for country_food in favorite.diet.countries_food.all %}
+                                <li class="list-group-item">{{ country_food.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <h1> No Favorite Diets </h1>
+    {% endif %}
 {% endblock %}

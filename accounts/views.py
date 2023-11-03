@@ -24,10 +24,9 @@ class SignUpView(CreateView):
 
 class UserLoginView(LoginView):
     template_name = 'accounts/login.html'
-    redirect_field_name = 'next' # default
+    redirect_field_name = reverse_lazy('account_page') # default = next
     extra_context = {'key': 'value'}
     authentication_form = AuthenticationForm # default
-    success_url = 'accounts/logout_page'
 
 
 # LogoutView(TemplateView)
