@@ -3,7 +3,6 @@ from django.shortcuts import render
 
 from .models import Diets, FavoritesDiets
 
-
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -11,6 +10,11 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.contrib.auth.models import User
 # Create your views here.
+
+
+
+
+
 
 class HomePageView(TemplateView):
 

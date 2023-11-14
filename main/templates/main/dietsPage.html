@@ -6,7 +6,7 @@
 {% block content %}
     <div class="container">
         {% for diet in diets %}
-            <div class="card md-3">
+            <div class="card mb-3">
                 <div class="card-header">
                     <h4 class="card-title"><a href="{% url 'diets_detail' pk=diet.pk %}">{{ diet.name }}</a></h4>
                 </div>

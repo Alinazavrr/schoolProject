@@ -11,14 +11,24 @@
     <header class="mb-4">
         <h1 class="display-1 text-center">{% block header %} Feel Good{% endblock %}</h1>
     </header>
-    <div class="row">
-        <ul class="col nav justify-content-end border">
-        {% if user.is_authenticated %}
+    <div class="row" style="background-color: green;">
+
+            <ul class="col nav justify-content-start">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'main_page' %}" style="color: white;">Главная</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'diets_page' %}" style="color: white;">Диеты</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'favorites_page' %}" style="color: white;">Любимые Диеты</a> </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'user_register' %}" style="color: white;">Специальная диета</a> </li>
+                {% endif %}
+            </ul>
+
+        <ul class="col nav justify-content-end">
+            {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'user_logout' %}" style="color: white;">Выйти из сети</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">
                     Профиль
                 </a>
                 <div class="dropdown-menu">
@@ -29,21 +39,15 @@
             </li>
         {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_login' %}">Login</a>
+                <a class="nav-link" href="{% url 'user_login' %}" style="color: white;">Войти в сеть</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_register' %}">Registraion</a>
+                <a class="nav-link" href="{% url 'user_register' %}" style="color: white;">Зарегистрироватся</a>
             </li>
         {% endif %}
         </ul>
     </div>
     <div class="row">
-        <nav class="col-md-auto nav flex-column border">
-            <a class="nav-link" href="{% url 'main_page' %}">Home</a>
-            <a class="nav-link" href="{% url 'diets_page' %}">Diets</a>
-            <a class="nav-link" href="{% url 'favorites_page' %}">Favorites</a>
-            <a class="nav-link" href="{% url 'account_page' %}">Account</a>
-        </nav>
         <section class="col border py-2">
             {% bootstrap_messages %}
             {% block content %}
