@@ -18,7 +18,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{% url 'diets_page' %}" style="color: white;">Диеты</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'favorites_page' %}" style="color: white;">Любимые Диеты</a> </li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item"> <a class="nav-link" href="{% url 'user_register' %}" style="color: white;">Специальная диета</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'diets_special' %}" style="color: white;">Специальная диета</a> </li>
                 {% endif %}
             </ul>
 

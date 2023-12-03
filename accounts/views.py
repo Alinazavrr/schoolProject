@@ -26,6 +26,7 @@ class UserLoginView(LoginView):
     template_name = 'accounts/login.html'
     redirect_field_name = reverse_lazy('account_page') # default = next
     extra_context = {'key': 'value'}
+    next_page = reverse_lazy('main_page')
     authentication_form = AuthenticationForm # default
 
 

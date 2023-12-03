@@ -6,6 +6,7 @@ urlpatterns = [
 
     path('diets/', views.DietsListView.as_view(), name='diets_page'),
     path('diets/<int:pk>', views.DietsDetailView.as_view(), name='diets_detail'),
+    path('diets/special', views.SpecialDietView.as_view(), name='diets_special'),
 
     path('favorites/', views.FavoritesDietsListView.as_view(), name='favorites_page'),
     path('account/', views.AccountDetailView.as_view(), name='account_page'),

@@ -1,0 +1,18 @@
+{% extends 'layouts/navbar.html' %}
+
+{% block content %}
+    <p> Рост нужно написать в метрах, пример: 183 см = 1.83 м </p>
+    <form method="get" action="{% url 'diets_page' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
